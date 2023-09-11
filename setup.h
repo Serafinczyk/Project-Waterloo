@@ -1,5 +1,5 @@
 ////////////////////////dev flags////////////////////////
-const bool viewPassword = false; //will view WiFi password in logs
+const bool viewPassword = true; //will view WiFi password in logs
 const bool skipNetworkScan = false;
 const bool skipClockSync = false;
 const bool skipDBRequest = false;
@@ -18,7 +18,7 @@ const byte Clock = D7;
 const byte statusLed = D0; //status led pin
 const byte warningLed = D8; //storage status led
 const byte button = D6; // to reset WIFI settings connect it to ground before system starts; to sync RTC connect to GROUND while system running
-const String serverName  = "https://wrzaskowski.ct8.pl/api/";  // db scripts adress
+const String serverName  = "https://waterloo.ct8.pl/api/";  // db scripts adress
 const char APname [] = "Project Waterloo";
 const char APpassword [] = "xd12134567890";
 const char ntpServerName [] = "tempus2.gum.gov.pl"; // official polish time source

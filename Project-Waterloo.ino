@@ -208,8 +208,10 @@ networkSetViaWeb:
     WiFi.disconnect();
     serialFlushRead(); //erasing serial incoming buffer
     networkSet();
-    networkConnect();
-    waitForNetworkConnect();
+    Serial.println("Wifi set success - rebooting board");
+    ESP.restart();
+    //networkConnect();
+    //waitForNetworkConnect();
 
   }
 
