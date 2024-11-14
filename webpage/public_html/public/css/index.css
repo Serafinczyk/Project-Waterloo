@@ -1,0 +1,344 @@
+/*
+    ------------> FONTS <------------
+*/
+
+@font-face {
+    font-family: "Lato";
+    font-weight: 400;
+    font-style: normal;
+    src: url("/public/fonts/lato-400.woff2") format("woff2"),
+        url("/public/fonts/lato-400.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Lato";
+    font-weight: 700;
+    font-style: normal;
+    src: url("/public/fonts/lato-700.woff2") format("woff2"),
+        url("/public/fonts/lato-700.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Lato";
+    font-weight: 900;
+    font-style: normal;
+    src: url("/public/fonts/lato-900.woff2") format("woff2"),
+        url("/public/fonts/lato-900.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Material Icons";
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+    src: url("/public/fonts/material-icons.woff2") format("woff2"),
+        url("/public/fonts/material-icons.woff") format("woff");
+}
+
+/*
+    ------------> BASE <------------
+*/
+
+:root {
+    --clr-purple-1: #a173bf;
+    --clr-purple-2: #c09ad9;
+    --clr-pink: #d9a7c7;
+    --clr-cream: #d9c5cc;
+    --clr-salmon: #d9a0af;
+
+    --clr-info: #666666;
+    --clr-warning: #d5c159;
+    --clr-error: #d55959;
+
+    --clr-dark: #202020;
+    --clr-dark-gray: #aaa;
+    --clr-light: #fff;
+    --clr-light-gray: #ccc;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato";
+}
+
+/*
+    ------------> INPUTS <------------
+*/
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.input__label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.input__input {
+    padding: .5rem;
+    border: 1px solid var(--clr-light-gray);
+    border-radius: .5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--clr-light);
+}
+
+.input__input:focus {
+    outline: 0;
+    border-color: var(--clr-purple-1);
+    color: var(--clr-purple-1);
+}
+
+/*
+    ------------> BUTTONS <------------
+*/
+
+.button {
+    position: relative;
+    z-index: 1;
+    padding: .75rem 2rem;
+    border: 0;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--clr-light);
+    background-color: var(--clr-purple-1);
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: 0;
+}
+
+.button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 10rem;
+    display: block;
+    background-color: var(--clr-pink);
+    opacity: 0;
+    transition: opacity .2s ease-in;
+}
+
+.button:hover::before, .button:focus::before {
+    opacity: 1;
+}
+
+.button--small {
+    padding: .5rem 1rem;
+    gap: .5rem;
+}
+
+.button--text {
+    padding: 0;
+    gap: .5rem;
+    color: var(--clr-purple-1);
+    background-color: transparent;
+}
+
+.button--text::before {
+    width: calc(100% + 1rem);
+    height: calc(100% + .5rem);
+    top: -.25rem;
+    left: -.5rem;
+    background-color: var(--clr-purple-2);
+}
+
+.button--text:hover::before, .button--text:focus::before {
+    opacity: .25;
+}
+
+.button--outlined {
+    border: 1px solid var(--clr-purple-1);
+    color: var(--clr-purple-1);
+    background-color: transparent;
+}
+
+.button--outlined:hover, .button--outlined:focus {
+    color: var(--clr-light);
+    border-color: var(--clr-pink);
+}
+
+/*
+    ------------> CHECKBOXES <------------
+*/
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.checkbox__input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: .125rem solid var(--clr-dark-gray);
+    border-radius: .25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox__input:checked {
+    border-color: var(--clr-purple-1);
+}
+
+.checkbox__input:checked::after {
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    border-radius: .125rem;
+    background-color: var(--clr-purple-1);
+}
+
+.checkbox__label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/*
+    ------------> INFO <------------
+*/
+
+.info {
+    padding: .75rem 1rem;
+    border: 1px solid var(--clr-info);
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--clr-info);
+}
+
+.info--warning {
+    border-color: var(--clr-warning);
+    color: var(--clr-warning);
+}
+
+.info--error {
+    border-color: var(--clr-error);
+    color: var(--clr-error);
+}
+
+/*
+    ------------> POPUPS <------------
+*/
+
+.popup {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.popup__window {
+    flex-basis: 500px;
+    margin: 2em;
+    border-radius: 0.5rem;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.popup__top {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+}
+
+.popup__title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.popup__close-button {
+    padding: 0;
+    border: 0;
+    color: var(--clr-light);
+    background-color: transparent;
+    user-select: none;
+    cursor: pointer;
+}
+
+.popup__bottom {
+    padding: 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-light);
+}
+
+.popup__content {
+    margin-bottom: 1rem;
+}
+
+.popup__buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/*
+    ------------> UTILS <------------
+*/
+
+.icon {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.5rem;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "liga";
+}
+
+.icon--large {
+    font-size: 2rem;
+}
